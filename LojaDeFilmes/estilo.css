@@ -1,0 +1,231 @@
+body {
+	font-family: verdana;
+	font-size: 12;
+}
+
+h2 {
+	margin-top: 5px;
+	margin-right: 5px;
+	border-bottom: 1px solid ADADAD;
+}
+
+h4 {
+	margin: 0px 0px 20px 0px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border-bottom: 1px solid ADADAD;
+	background-color: DBDBDB;
+}
+
+.boxLogout {
+	margin-top: 5px;
+	float:right;
+}
+
+.boxContainer {
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid ADADAD;
+	border-top: 1px solid ADADAD;
+	border-left: 1px solid ADADAD;
+	border-right: 1px solid ADADAD;
+	float:left;
+}
+
+.boxContainerInterno {
+	margin-bottom: 10px;
+	border-bottom: 1px solid ADADAD;
+	border-top: 1px solid ADADAD;
+	border-left: 1px solid ADADAD;
+	border-right: 1px solid ADADAD;
+	float:left;
+}
+
+.boxContainerCampos {
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	float:left;
+}
+
+table {
+	border-collapse: collapse;
+	font-family: verdana;
+	font-size: 12;
+}
+
+tfoot {
+	text-align:right;
+}
+
+.thead {
+	background-color: DBDBDB;
+	font-weight: bold;
+}
+
+.tcelhead {
+	background-color: DBDBDB;
+	padding-left: 5px;
+	padding-right: 115px;
+}
+
+.tcelNome {
+	width: 150px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.tcelCredencial{
+	width: 100px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.tcelExcluir{
+	width: 30px;
+	text-align:center;
+	padding-right: 5px;
+}
+
+tr:nth-child(odd) {
+    background-color:#F2F2F2; 
+}
+tr:nth-child(even) {
+    background-color:#FFFFFF; 
+}
+
+
+
+
+
+
+
+.grafico {
+	width: 400px;
+	height: 200px;
+}
+
+.espaco {
+	margin-bottom:10px;
+}
+
+.boxTempo {
+	text-transform:uppercase;
+	padding-top: 0px;
+	margin-right: 15px;
+	margin-bottom:10px;
+	border-bottom: 1px solid ADADAD;
+	border-top: 1px solid ADADAD;
+	border-left: 1px solid ADADAD;
+	border-right: 1px solid ADADAD;
+	height: 250px;
+	width: 420px;
+	float:left;
+}
+
+
+
+.listaRequisicoes {
+	padding-left: 0px;
+	margin-left: 0px;
+}
+
+.boxEscolherArquivo {
+	margin-bottom: 10px;
+	height: 370px;
+	width: 400px;		
+	padding: 0px 0px 0px 10px;				
+	border-bottom: 1px solid ADADAD;
+	border-top: 1px solid ADADAD;
+	border-left: 1px solid ADADAD;
+	border-right: 1px solid ADADAD;
+}
+
+.boxExibirColunas {
+	margin-top: 10px;
+	height: 200px;
+	width: 250px;		
+	padding: 0px 0px 0px 10px;				
+	border-bottom: 1px solid ADADAD;
+	border-top: 1px solid ADADAD;
+	border-left: 1px solid ADADAD;
+	border-right: 1px solid ADADAD;
+}
+
+.boxOpcoesRelatorio {
+	margin-top: 10px;
+	height: 100px;
+	width: 250px;		
+	padding: 0px 0px 0px 10px;				
+	border-bottom: 1px solid ADADAD;
+	border-top: 1px solid ADADAD;
+	border-left: 1px solid ADADAD;
+	border-right: 1px solid ADADAD;
+}
+
+.listaExibicaoConteudo {
+	padding: 0px 0px 0px 0px;
+	list-style:none;
+}
+
+.listaOpcoesRelatorio {
+	padding: 0px 0px 0px 0px;
+	list-style:none;
+}
+
+.boxEscolherArquivo span {
+	text-transform:uppercase;
+	width: 350px;
+	font-weight: bold;
+}
+
+.tabelaRequisicoes {
+	font-family: verdana;
+	font-size: 11;
+	border-collapse: collapse;
+	border:1px solid ADADAD;
+}
+
+.tabelaRequisicoes  thead td{
+	text-transform:uppercase;
+	border-bottom:1px solid ADADAD;
+	font-weight: bold;
+	background-color: DBDBDB;
+}
+
+.colunaRequisicao {
+	padding-left: 10px;
+	width: 210px;
+}
+
+.colunaNumeroRequisicao {
+	padding-left: 10px;
+	width: 5px;
+}
+
+.coluna {
+	width: 116px;
+	text-align: center;
+	padding-bottom: 5px;
+}
+
+.corSim {
+	background-color: E3E3E3;
+}
+
+.corAlerta {
+	font-weight: bold;
+}
+
+.corErro{
+	font-weight: bold;
+	color: E42A27;
+}
+
+#linkReiniciarRelatorio {
+	float: right;
+	margin-top: 0px;
+	margin-right: 5px;
+}

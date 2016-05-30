@@ -1,0 +1,189 @@
+<html>
+
+<head>
+	<title>RTS TREINAMENTOS - Sistema de Alunos - Logado como Admin</title>
+	<script	src="funcoes.js"></script>
+	<script	src="jquery.min.js"></script>
+	<script type="text/javascript" src="jquery-ui.min.js"></script>
+	<link rel="stylesheet" type="text/css" media="screen" href="estilo.css" />
+	
+	<meta charset="utf-8">
+</head>
+
+<body>
+	<div id="container" class="boxContainer">
+		
+		<div class="boxLogout">
+			<span><a href="#" onclick="javascript:logout();">sair</a>
+		</div>
+		<h2>Sistema de Alunos</h2>
+		<div id="lista-alunos" class="boxContainerInterno">
+			<h4>Lista de alunos</h4>
+			
+			<div class="boxContainerCampos">
+				<div id="tabela">
+					<div class="thead">
+						<span class="tcelhead">Nome</span>
+						<span>Login</span>
+					</div>
+					<table>
+						<tbody id="listaAlunos">
+						</tbody>
+						<tfoot id="paginacao">
+						</tfoot>
+					</table>
+					<div>
+						<span>Quantidade de alunos:</span>
+						<span id="quantidade">0</span>
+					</div>
+				</div>
+				<div id="sem-alunos">
+					<span>Não existem alunos cadastrados</span>
+				</div>
+
+			</div>
+		</div>
+	
+	</div>
+	
+</body>
+
+<script type="text/javascript">
+	
+	//var cookieDefault="Pedro Paulo=ppaulo=1234qwer|Maria Maria=mmaria=1234qwer|Jose Roberto=jroberto=1234qwer|Joao Mendes=jmendes=1234qwer|Thiago Castro=tcastro=1234qwer|Renato Fonseca=rfonseca|Samanta Souza=ssouza=1234qwer";
+	var cookieDefault="Pedro Paulo=ppaulo=1234qwer|Maria Maria=mmaria=1234qwer|Jose Roberto=jroberto=1234qwer|Joao Mendes=jmendes=1234qwer|Thiago Castro=tcastro=1234qwer|Renato Fonseca=rfonseca|Samanta Souza=ssouza=1234qwer|Pedro Paulo=ppaulo=1234qwer|Maria Maria=mmaria=1234qwer|Jose Roberto=jroberto=1234qwer|Joao Mendes=jmendes=1234qwer|Thiago Castro=tcastro=1234qwer|Renato Fonseca=rfonseca|Samanta Souza=ssouza=1234qwer";
+	var nomeCookie="alunos";
+
+	$(document).ready(function() {
+		
+		if (getParameterByName("primeiroAcesso") == "sim") {
+			var quantidadeUsuarios=10;
+			
+			if (getParameterByName("quantidade") != "") {
+				alert(getParameterByName("quantidade"));
+				quantidadeUsuarios = getParameterByName("quantidade");
+			}
+			
+			var templateUsuarios = "Aluno ${NumeroAluno}=aluno${NumeroAluno}=1234qwer|";
+			var listaUsuarios = ""
+			for (i = 0; i < quantidadeUsuarios; i++) {
+				listaUsuarios += templateUsuarios.replace("${NumeroAluno}",i + 1).replace("${NumeroAluno}",i + 1);
+			}
+			listaUsuarios = listaUsuarios.substring(0,listaUsuarios.length -1);
+			setCookie(nomeCookie,listaUsuarios);
+		}
+		
+		carregarTabela();
+	});
+			
+	function carregarTabela() {
+		var valorCookie=getCookieByName("alunos");
+		var quantidadeLinhas = 0;
+		var listaAlunos;
+		var pagina = 1;
+		
+		if (getParameterByName("pagina") != "" && getParameterByName("pagina") != null) {
+			pagina = getParameterByName("pagina");
+		}
+		
+		$("#listaAlunos").empty();
+			
+		if (valorCookie.length==0) {
+			$("#tabela").hide();
+			$("#sem-alunos").show();
+		}
+		else {
+			$("#sem-alunos").hide();
+			$("#tabela").show();
+		}
+		
+		listaAlunos = valorCookie.split("|");
+		
+		quantidadeLinhas = listaAlunos.length;
+		
+		$("#quantidade").empty();
+		$("#quantidade").append(listaAlunos.length);
+		
+		if (listaAlunos.length > 5) {
+			quantidadeLinhas = 5;
+		}
+
+		var inicio = (0 + (quantidadeLinhas * (pagina - 1)));
+		var fim = 0;
+		var paginaMaxima = Math.ceil(listaAlunos.length / quantidadeLinhas);
+		
+		if (pagina < paginaMaxima) {
+			fim = inicio + quantidadeLinhas;
+		}
+		else {
+			fim = inicio + (listaAlunos.length - inicio);
+		}
+			
+		//alert("inicio = " + inicio + " fim = " + fim + " paginaMaxima = " + Math.ceil(paginaMaxima) + " lenght = " + listaAlunos.length);
+		// 0 - 5 - 14 | 5 - 10 - 14 | 10 - 15 - 14
+		for (var i = inicio; i < fim; i++) {
+			var htmlTemplate="<tr id='linha-${Login}'><td class='tcelNome'>${Nome}</td><td class='tcelCredencial'>${Login}</td><td class='tcelExcluir'><img id='excluir' height='25' width='25' src='ico-excluir.png' onclick='javascript:excluirAluno(\"${Login}\");'/></td></tr>";
+			var nome=listaAlunos[i].split("=")[0];
+			var login=listaAlunos[i].split("=")[1];
+			var htmlAppend=htmlTemplate.replace("${Nome}",nome).replace("${Login}",login).replace("${Login}",login).replace("${Login}",login);
+			
+			$("#listaAlunos").append(htmlAppend);
+		}
+		
+		$("#paginacao").empty();
+		
+		var htmlTemplatePaginacao = "<td colspan='3'>"
+
+		if (+pagina != 1) {
+			htmlTemplatePaginacao += "<a href='listaAlunos.html?pagina=${PaginaAnterior}'>anterior</a> "
+			htmlTemplatePaginacao = htmlTemplatePaginacao.replace("${PaginaAnterior}",(+pagina - 1));
+		}
+		
+		if (listaAlunos.length > (quantidadeLinhas * pagina)) {
+			htmlTemplatePaginacao += "<a href='listaAlunos.html?pagina=${ProximaPagina}'>próxima</a>"
+			htmlTemplatePaginacao = htmlTemplatePaginacao.replace("${ProximaPagina}",(+pagina + 1));
+		}
+		
+		htmlTemplatePaginacao += "</td>"
+		$("#paginacao").append(htmlTemplatePaginacao);
+		
+	}
+	
+	function excluirAluno(loginAlunoExcluido) {
+		
+		var exclui = confirm("Deseja excluir o " + loginAlunoExcluido + "?");
+	
+		if (!exclui) {
+			return;
+		}
+	
+		var listaAlunos=getCookieByName("alunos").split("|");
+		var novaListaAlunos="";
+		
+		for (var i = 0; i < listaAlunos.length; i++) {
+			var login = listaAlunos[i].split("=")[1];
+			if(login!=loginAlunoExcluido) {
+				novaListaAlunos += listaAlunos[i] + "|";
+			}
+		}
+		
+		novaListaAlunos = novaListaAlunos.substring(0,novaListaAlunos.length -1);
+		
+		setCookie(nomeCookie,novaListaAlunos);
+		carregarTabela();
+		
+		alert("O aluno " + loginAlunoExcluido + " foi excluido com sucesso!");
+	}
+	
+	function logout() {
+		var deslogar = confirm("Deseja encerrar a sessão?");
+	
+		if (!deslogar) {
+			return;
+		}
+	
+		window.location = "login.html"
+	}
+</script>
+
+</html>

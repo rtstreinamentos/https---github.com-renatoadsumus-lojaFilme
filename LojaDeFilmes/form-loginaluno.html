@@ -1,0 +1,62 @@
+<html>
+
+<head>
+	<title>RTS TREINAMENTOS - Sistema de Alunos</title>
+	
+	<script	src="jquery.min.js"></script>
+	<script type="text/javascript" src="jquery-ui.min.js"></script>
+	<link rel="stylesheet" type="text/css" media="screen" href="estilo.css" />
+	
+
+</head>
+
+<body>
+
+	
+
+		<div id="box-login-aluno" class="boxContainerInterno">
+			<h4>Logar como aluno</h4>
+			<div class="boxContainerCampos">
+				<form>
+					<label for="txtUsuario">Usuário:</label><br>
+					<input type="text" id="txtUsuario" value="" /><br>
+					<label for="txtSenha">Senha:</label><br>
+					<input type="password" id="txtSenha" value="" /><br><br>
+					<input type="button" id="btLogarAluno" value="Logar" />
+				</form>
+			</div>
+		</div>
+
+	
+</body>
+
+<script type="text/javascript">
+	var usuarioAdmin="Admin";
+	var senhaAdmin="Admin";
+	var senha="";
+	
+	$(document).ready(function() {
+		//alert("Carregaou");
+	});
+	
+	$("#btLogarAdmin").click(function() {
+		senha = prompt("Informe a senha do administrador","");
+		logarAdmin(senha);
+	});
+
+	$("#btLogarAluno").click(function() {
+		alert("Função indisponível no momento");
+	});
+	
+	function logarAdmin(senhaInformada) {
+		if(senhaInformada==senhaAdmin){
+			window.location = "listaAlunos.html"
+		}
+		else {
+			alert("Senha inválida");
+		}
+	}
+	
+</script>
+
+</html>

@@ -1,0 +1,8 @@
+C:\Users\rfonseca\Documents\Visual Studio 2008\Projects\LojaDeFilmes\LojaDeFilmes\bin\LojaDeFilmes.dll
+C:\Users\rfonseca\Documents\Visual Studio 2008\Projects\LojaDeFilmes\LojaDeFilmes\bin\LojaDeFilmes.pdb
+C:\Users\rfonseca\Documents\Visual Studio 2008\Projects\LojaDeFilmes\LojaDeFilmes\bin\log4net.dll
+C:\Users\rfonseca\Documents\Visual Studio 2008\Projects\LojaDeFilmes\LojaDeFilmes\bin\MySql.Data.dll
+C:\Users\rfonseca\Documents\Visual Studio 2008\Projects\LojaDeFilmes\LojaDeFilmes\bin\MySQL.dll
+C:\Users\rfonseca\Documents\Visual Studio 2008\Projects\LojaDeFilmes\LojaDeFilmes\obj\Release\ResolveAssemblyReference.cache
+C:\Users\rfonseca\Documents\Visual Studio 2008\Projects\LojaDeFilmes\LojaDeFilmes\obj\Release\LojaDeFilmes.dll
+C:\Users\rfonseca\Documents\Visual Studio 2008\Projects\LojaDeFilmes\LojaDeFilmes\obj\Release\LojaDeFilmes.pdb
